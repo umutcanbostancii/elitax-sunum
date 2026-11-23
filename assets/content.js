@@ -41,6 +41,32 @@
   restore(); apply(false);
 })();
 (() => {
+  const dialog = document.querySelector('[data-pdf-dialog]');
+  if (!dialog || typeof dialog.showModal !== 'function' || navigator.pdfViewerEnabled === false) return;
+
+  const documents = dialog.closest('.announcement-documents');
+  const button = documents.querySelector('[data-pdf-open]');
+  const direct = documents.querySelector('[data-pdf-direct]');
+  const preview = dialog.querySelector('[data-pdf-preview]');
+  const pdf = new URL(direct.href);
+  if (pdf.protocol !== 'https:' || pdf.origin === window.location.origin) return;
+
+  button.hidden = false;
+  button.addEventListener('click', () => {
+    dialog.showModal();
+    const frame = document.createElement('iframe');
+    frame.title = 'Duyurunun PDF belgesi';
+    frame.referrerPolicy = 'no-referrer';
+    frame.setAttribute('credentialless', '');
+    frame.src = pdf.href;
+    preview.append(frame);
+  });
+  dialog.addEventListener('close', () => {
+    preview.replaceChildren();
+    button.focus();
+  });
+})();
+(() => {
   const section = document.getElementById('contact-intake');
   if (!section) return;
   const form = document.getElementById('contact-form');
