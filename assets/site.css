@@ -199,6 +199,10 @@ main:focus { outline: none; }
   grid-template-areas: "label portraits" "biography portraits";
   grid-template-rows: auto 1fr;
 }
+@media (width > 42rem) {
+  [aria-labelledby="founder-title"] { --card-height: clamp(34rem, 44vw, 48rem); }
+  [aria-labelledby="team-title"] { --card-height: clamp(32rem, 45vw, 47rem); }
+}
 [data-profile-section] > .stack-label { grid-area: label; padding: var(--card-padding) var(--card-padding) 0; }
 [data-profile-section] > .stack-body { grid-area: biography; align-self: end; padding: 1rem var(--card-padding) var(--card-padding); }
 [data-profile-section] > .stack-media { grid-area: portraits; }
@@ -234,8 +238,8 @@ main:focus { outline: none; }
   gap: .7rem;
   padding: clamp(.9rem, 2vw, 1.9rem);
 }
-.founder-profile > img { object-position: center top; }
-.founder-profile::before { background: linear-gradient(0deg, #102b3c 0%, #102b3cec 19%, #102b3c8c 32%, transparent 51%); }
+.founder-profile > img { object-position: center 35%; }
+.founder-profile::before { background: linear-gradient(0deg, #102b3c 0%, #102b3ce0 14%, #102b3c68 25%, transparent 37%); }
 .founder-identity { display: grid; gap: .4rem; }
 .founder-identity strong { font-size: clamp(1.2rem, 2.35vw, 2.2rem); font-weight: 550; letter-spacing: -.04em; line-height: 1.08; }
 .founder-identity > span { color: #e4eeef; font-size: .84rem; }
@@ -243,8 +247,8 @@ main:focus { outline: none; }
 .founder-profile:hover .profile-cta { text-decoration: underline; text-underline-offset: .2em; }
 
 .team-profile { min-height: 8rem; padding: .55rem clamp(.35rem, 1.2vw, .8rem); }
-.team-profile > img { object-position: center 18%; }
-.team-profile::before { background: linear-gradient(0deg, #102b3c 0%, #102b3ce0 16%, #102b3c6b 33%, transparent 45%); }
+.team-profile > img { object-position: center 23%; }
+.team-profile::before { background: linear-gradient(0deg, #102b3c 0%, #102b3ce0 12%, #102b3c60 22%, transparent 33%); }
 .team-profile strong { font-size: clamp(.72rem, 1.2vw, .91rem); font-weight: 650; line-height: 1.15; }
 [data-profile][aria-pressed="true"]::after {
   content: "";
@@ -282,6 +286,8 @@ main:focus { outline: none; }
     min-height: min(var(--card-height), calc(100svh - var(--stack-start) - var(--stack-step) * var(--stack-index) - 1rem));
     margin-bottom: calc(var(--stack-step) * (3 - var(--stack-index)));
   }
+  .home-stack.is-sticky [aria-labelledby="founder-title"] { margin-bottom: 0; }
+  .home-stack.is-sticky [aria-labelledby="team-title"] { margin-bottom: var(--stack-step); }
   .home-stack.is-sticky .stack-content,
   .home-stack.is-sticky [data-profile-section] > .stack-label { padding-block-start: .61rem; }
   .home-stack.is-sticky .stack-media::after {
@@ -402,7 +408,7 @@ main:focus { outline: none; }
   .founder-profile::before { content: none; }
   .founder-identity, .profile-cta { margin-inline: .8rem; }
   .profile-cta { margin-bottom: .8rem; }
-  .team-profile { min-height: clamp(6.4rem, 29vw, 11rem); }
+  .team-profile { min-height: clamp(6.7rem, 32vw, 12.5rem); }
   .service-media, .news-media { min-height: 13rem; }
   .service-grid, .sector-grid, .publication-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 8rem; }
