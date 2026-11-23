@@ -417,3 +417,9 @@ main:focus { outline: none; }
   .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem 1rem; }
   .footer-grid a { min-height: 2.75rem; overflow-wrap: anywhere; }
 }
+
+.site-menu a[aria-current]:not(.button) {color: var(--blue); text-decoration: underline; text-underline-offset: .45em; text-decoration-thickness: 2px;}
+.footer-signature {display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem 2rem; padding-bottom: 2rem; border-bottom: 1px solid #41606a;}
+.footer-wordmark {display: inline-flex; width: clamp(9rem, 15vw, 14rem);}
+.footer-wordmark img {display: block; width: 100%; height: auto; filter: brightness(0) invert(1);}
+.footer-signature > span {color: #b3d2d1; font-size: clamp(.88rem, 1.6vw, 1.12rem);}

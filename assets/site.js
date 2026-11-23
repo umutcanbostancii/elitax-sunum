@@ -117,3 +117,17 @@ if (stack) {
   window.addEventListener("resize", requestUpdate, { passive: true });
   setSticky();
 }
+
+// Honour bookmarks created when the team profiles lived on the corporate page.
+const formerTeamDirectory = document.querySelector('[data-former-team-directory]');
+if (formerTeamDirectory) {
+  const formerProfiles = new Set(['profesyonel-ekip', 'nedim-tolga-suer', 'kurtulus-ozan-keser', 'dilan-yilmaz', 'savas-yilmaz', 'volkan-altun', 'nahit-sahin']);
+  const followFormerProfile = () => {
+    if (!formerProfiles.has(location.hash.slice(1))) return;
+    const directory = new URL(formerTeamDirectory.href);
+    directory.hash = location.hash;
+    location.replace(directory.href);
+  };
+  followFormerProfile();
+  window.addEventListener('hashchange', followFormerProfile);
+}

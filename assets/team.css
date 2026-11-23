@@ -1,0 +1,240 @@
+.team-hero {
+  color: var(--white);
+  background: var(--navy);
+}
+
+.team-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.65rem, 6vw, 6rem);
+  padding-block: clamp(1.65rem, 3.4vw, 3.4rem) clamp(2rem, 4.6vw, 4.25rem);
+}
+
+.team-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-bottom: clamp(1.25rem, 3.15vw, 3.15rem);
+  color: var(--aqua);
+  font-size: .875rem;
+}
+
+.team-breadcrumb a,
+.team-profile-link {
+  text-underline-offset: .22em;
+}
+
+.team-hero h1 {
+  font-size: clamp(3.1rem, 8vw, 7rem);
+}
+
+.team-hero p {
+  max-width: 40ch;
+  margin-top: 1.2rem;
+  color: #e5eeec;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+}
+
+.team-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem clamp(.9rem, 2.1vw, 2rem);
+  margin-top: clamp(.95rem, 2vw, 1.85rem);
+}
+
+.team-cover {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(.4rem, 1.3vw, 1.2rem);
+}
+
+.team-cover-person {
+  display: grid;
+  gap: .35rem;
+  min-width: 0;
+  font-size: clamp(.8rem, 1.1vw, .95rem);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.team-cover-person img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: 50% 28%;
+}
+
+.team-cover-person span {
+  padding-block: .15rem;
+}
+
+.team-cover-person:hover span {
+  text-decoration: underline;
+  text-underline-offset: .22em;
+}
+
+.team-jump a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .55rem;
+  min-height: 2.75rem;
+  font-size: .9rem;
+  border-bottom: 1px solid #7b9b9e;
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.team-jump a span {
+  color: var(--aqua);
+  font-size: 1.4rem;
+}
+
+.team-jump a:hover {
+  color: var(--aqua);
+}
+
+.team-hero a:focus-visible,
+.team-contact a:focus-visible {
+  outline-color: var(--aqua);
+}
+
+.team-section {
+  padding-block: clamp(2.75rem, 6vw, 5.5rem);
+}
+
+.team-section h2 {
+  margin-bottom: clamp(1.5rem, 2.75vw, 2.5rem);
+}
+
+.team-founders {
+  background: var(--pale);
+}
+
+.team-founders-grid,
+.team-staff-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.team-founders .team-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.team-portrait {
+  overflow: hidden;
+  background: var(--stone);
+}
+
+.team-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 29%;
+}
+
+.team-founders .team-portrait {
+  height: clamp(18rem, 33vw, 32rem);
+}
+
+.team-card-copy {
+  min-width: 0;
+  padding: clamp(1.1rem, 2.5vw, 2.5rem);
+}
+
+.team-card h3 {
+  font-size: clamp(1.35rem, 2.45vw, 2.15rem);
+  overflow-wrap: anywhere;
+}
+
+.team-role {
+  margin-top: .45rem;
+  color: var(--blue);
+  font-size: .9rem;
+  font-weight: 650;
+}
+
+.team-bio {
+  display: grid;
+  gap: .75rem;
+  margin-top: 1.125rem;
+  color: var(--muted);
+  font-size: .975rem;
+  line-height: 1.65;
+}
+
+.team-profile-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  max-width: 100%;
+  min-height: 2.75rem;
+  margin-top: .7rem;
+  color: var(--blue);
+  font-size: .925rem;
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.team-staff-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  row-gap: 2.25rem;
+}
+
+.team-staff .team-card {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.team-staff .team-portrait {
+  aspect-ratio: 5 / 4;
+}
+
+.team-staff .team-card-copy {
+  padding: 1.15rem .15rem 0;
+}
+
+.team-contact {
+  color: var(--white);
+  background: var(--blue);
+}
+
+.team-contact .site-shell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-block: clamp(2.3rem, 5vw, 4.6rem);
+}
+
+.team-contact h2 {
+  font-size: clamp(1.85rem, 4vw, 3.5rem);
+}
+
+@media (max-width: 56rem) {
+  .team-staff-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40rem) {
+  .team-hero-inner,
+  .team-founders-grid,
+  .team-staff-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .team-cover-person img {
+    aspect-ratio: 5 / 3;
+  }
+
+  .team-founders .team-portrait {
+    height: auto;
+    aspect-ratio: 5 / 4;
+  }
+}
