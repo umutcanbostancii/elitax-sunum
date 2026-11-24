@@ -1,0 +1,219 @@
+/* Locally adapted motion patterns from the supplied Ebury page reference. */
+.reference-home-hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--pale);
+  color: var(--ink);
+}
+.reference-home-hero::before {
+  position: absolute;
+  inset: 0 auto auto max(var(--gutter), calc((100vw - 82rem) / 2));
+  width: clamp(4rem, 8vw, 7rem);
+  height: 2px;
+  background: var(--blue);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.elitax-interior { position: relative; }
+.elitax-interior:not(.elitax-interior-visual)::before {
+  position: absolute;
+  inset: 0 auto auto max(var(--gutter), calc((100vw - 82rem) / 2));
+  width: clamp(4rem, 8vw, 7rem);
+  height: 2px;
+  background: var(--blue);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.reference-hero-shell { padding-block: clamp(3rem, 7vw, 6.2rem); }
+.reference-home-hero .hero_header-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(19rem, .96fr);
+  align-items: center;
+  gap: clamp(2rem, 5.7vw, 5.7rem);
+}
+.reference-home-hero .hero_header-content { min-width: 0; }
+.reference-home-hero .title_content-primary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1.6rem, 3vw, 2.5rem);
+}
+.reference-home-hero .title_content-top { max-width: 45rem; }
+.reference-home-hero .hero-kicker { margin-bottom: 1.25rem; color: var(--blue); }
+.reference-home-hero .heading-style-h1 {
+  max-width: 13ch;
+  font-size: clamp(2.7rem, 5.2vw, 5.1rem);
+  font-weight: 550;
+  line-height: .99;
+  letter-spacing: -.06em;
+}
+.reference-home-hero .title_content-p { max-width: 44rem; }
+.reference-home-hero .title_content-p p {
+  margin-top: 1.35rem;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.45vw, 1.25rem);
+  line-height: 1.55;
+}
+.reference-home-hero .button-group { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1.5rem; }
+.reference-home-hero .hero_header-img {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  aspect-ratio: 1 / 1.08;
+  background: var(--stone);
+}
+.reference-home-hero .hero_header-img::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 20%;
+  background: linear-gradient(0deg, rgb(16 43 60 / 14%), transparent);
+  content: "";
+  pointer-events: none;
+}
+.reference-home-hero .hero_header-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 46%;
+}
+
+.reference-home-hero::before,
+.elitax-interior::before {
+  animation: reference-rule-in 520ms cubic-bezier(.25, .46, .45, .94) 80ms both;
+}
+@keyframes reference-rule-in { to { transform: scaleX(1); } }
+
+.site-menu a:not(.button) {
+  position: relative;
+  text-decoration: none;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+.site-menu a:not(.button)::after {
+  position: absolute;
+  inset: auto 0 .38rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 300ms cubic-bezier(.25, .46, .45, .94);
+}
+.site-menu a:not(.button):hover { opacity: .72; text-decoration: none; }
+.site-menu a:not(.button):is(:hover, :focus-visible, [aria-current="page"])::after { transform: scaleX(1); }
+.site-menu a[aria-current="page"] { color: var(--blue); text-decoration: none; }
+.button { position: relative; transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease; }
+.button::after {
+  position: absolute;
+  right: 1.15rem;
+  bottom: .42rem;
+  left: 1.15rem;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 300ms cubic-bezier(.25, .46, .45, .94);
+}
+.button:is(:hover, :focus-visible)::after { transform: scaleX(1); }
+.button > span[aria-hidden="true"],
+.text-link > span[aria-hidden="true"] {
+  display: inline-block;
+  transition: transform 300ms cubic-bezier(.25, .46, .45, .94);
+}
+.button:is(:hover, :focus-visible) > span[aria-hidden="true"],
+.text-link:is(:hover, :focus-visible) > span[aria-hidden="true"] { transform: translate(2px, -2px); }
+.text-link { transition: color 180ms ease; }
+
+@media (max-width: 59.999rem) {
+  .reference-home-hero .hero_header-wrap { grid-template-columns: minmax(0, 1fr); }
+  .reference-home-hero .hero_header-img { aspect-ratio: 1.8; }
+  .has-menu .site-header[data-menu-open] .site-menu { animation: reference-menu-in 220ms cubic-bezier(.25, .46, .45, .94) both; }
+  .has-menu .site-header[data-menu-open] .menu-icon { border-color: transparent; }
+  .has-menu .site-header[data-menu-open] .menu-icon::after { transform: rotate(45deg); }
+  .has-menu .menu-icon { transition: border-color 140ms ease; }
+  .menu-icon::after { transition: transform 160ms ease; }
+}
+@keyframes reference-menu-in {
+  from { opacity: .7; transform: translateY(-.35rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reference-service-rail {
+  overflow: hidden;
+  border-block: 1px solid var(--line);
+  background: var(--white);
+}
+.reference-service-rail-layout { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1.25rem; }
+.reference-service-rail-window { min-width: 0; overflow-x: auto; }
+.reference-service-rail[data-motion-ready]:not([data-motion-paused]) .reference-service-rail-window { overflow: hidden; }
+.reference-service-rail-track { display: flex; width: max-content; }
+.reference-service-rail-list {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: clamp(1.5rem, 3.7vw, 3.8rem);
+  margin: 0;
+  padding: 1.15rem clamp(1.5rem, 3vw, 3rem) 1.15rem 0;
+  list-style: none;
+}
+.reference-service-rail-list a {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(.92rem, 1.15vw, 1.08rem);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+.reference-service-rail-list a:hover { color: var(--blue); }
+.reference-service-rail-toggle {
+  min-height: 2.6rem;
+  padding: .3rem .7rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--ink);
+  font: inherit;
+  font-size: .8rem;
+  cursor: pointer;
+}
+.reference-service-rail-toggle:hover { border-color: var(--blue); color: var(--blue); }
+.reference-service-rail[data-motion-ready]:not([data-motion-paused]) .reference-service-rail-track {
+  animation: reference-service-marquee var(--reference-marquee-duration, 42s) linear infinite;
+}
+.reference-service-rail[data-motion-paused] .reference-service-rail-list[aria-hidden="true"] { display: none; }
+.reference-service-rail[data-focus-in] .reference-service-rail-track { animation: none !important; transform: none !important; }
+.reference-service-rail-window:focus-within .reference-service-rail-track,
+.reference-service-rail-window:hover .reference-service-rail-track,
+.reference-service-rail[data-page-hidden] .reference-service-rail-track,
+.reference-service-rail[data-not-visible] .reference-service-rail-track {
+  animation-play-state: paused;
+}
+@keyframes reference-service-marquee { to { transform: translateX(-50%); } }
+
+@media (max-width: 48rem) {
+  .reference-hero-shell { padding-block: 2.55rem 2rem; }
+  .reference-home-hero .heading-style-h1 { max-width: 11ch; font-size: clamp(2.5rem, 10vw, 3.7rem); }
+  .reference-home-hero .title_content-primary { gap: 1.35rem; }
+  .reference-service-rail-layout { grid-template-columns: minmax(0, 1fr) auto; gap: .6rem; }
+  .reference-service-rail-list { gap: 1.15rem; padding-block: .85rem; }
+  .reference-service-rail-toggle { min-height: 2.4rem; padding-inline: .55rem; font-size: .72rem; }
+}
+@media (max-width: 23rem) {
+  .reference-service-rail-layout { grid-template-columns: minmax(0, 1fr); padding-block: .35rem; }
+  .reference-service-rail-toggle { justify-self: end; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-home-hero::before,
+  .elitax-interior::before { animation: none; transform: none; }
+  .site-menu a:not(.button), .site-menu a:not(.button)::after,
+  .button, .button::after, .button > span[aria-hidden="true"],
+  .text-link, .text-link > span[aria-hidden="true"], .menu-icon, .menu-icon::after,
+  .reference-service-rail-track { transition: none !important; animation: none !important; }
+  .reference-service-rail-window { overflow-x: auto; }
+  .reference-service-rail-list[aria-hidden="true"] { display: none; }
+  .has-menu .site-header[data-menu-open] .site-menu { animation: none; }
+}

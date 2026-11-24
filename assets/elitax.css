@@ -1,0 +1,822 @@
+.elitax-interior-visual { position: relative; }
+.elitax-interior-visual::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0 auto auto max(var(--gutter), calc((100vw - 82rem) / 2));
+  width: min(6rem, 18vw);
+  height: 2px;
+  background: var(--blue);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.elitax-interior-visual .elitax-interior-image { border: 1px solid rgb(20 48 61 / 10%); }
+.elitax-service-hero[data-service="vergi-tasdik"] .elitax-interior-image img { object-position: center 58%; }
+.elitax-service-hero[data-service="vergi-danismanligi-ve-uyum"] .elitax-interior-image img { object-position: center 54%; }
+.elitax-service-hero[data-service="uluslararasi-vergilendirme"] .elitax-interior-image img { object-position: center 50%; }
+.elitax-service-hero[data-service="sirket-yapilandirmalari-ve-kurumsal-finansman"] .elitax-interior-image img { object-position: center 56%; }
+.elitax-service-hero[data-service="vergi-incelemeleri-ve-uyusmazliklar"] .elitax-interior-image img { object-position: center 48%; }
+.elitax-service-hero[data-service="outsource-muhasebe-ve-bordro"] .elitax-interior-image img { object-position: center 52%; }
+@keyframes elitax-interior-rule-in { to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: no-preference) {
+  .elitax-interior-visual::before { animation: elitax-interior-rule-in 480ms cubic-bezier(.2,.7,.25,1) 80ms both; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .elitax-interior-visual::before { transform: none; }
+}
+
+.elitax-wordmark {
+  color: inherit;
+  font-size: clamp(1.52rem, 2.35vw, 2.05rem);
+  font-weight: 750;
+  letter-spacing: .07em;
+  line-height: 1;
+  text-decoration: none;
+}
+/* Editorial closing and shared footer */
+.elitax-footer {
+  padding-block: clamp(3rem, 7vw, 6rem) 0;
+  background: var(--navy);
+}
+.elitax-footer-signature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block-end: 1.65rem;
+  border-bottom: 1px solid #41606a;
+}
+.elitax-footer-signature .elitax-wordmark { font-size: clamp(1.5rem, 3vw, 2.4rem); }
+.elitax-footer-signature p { color: #d9e9ea; }
+.elitax-footer .elitax-footer-grid {
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, .75fr) minmax(0, .95fr) minmax(0, 1fr);
+  gap: clamp(1.4rem, 3vw, 3.5rem);
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+}
+.elitax-footer-grid h2 {
+  margin-block: 0 .6rem;
+  color: var(--aqua);
+  font-size: 1.05rem;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+.elitax-footer-grid h2 a { color: inherit; }
+.elitax-footer-grid a, .elitax-footer-grid summary {
+  min-height: 2.75rem;
+  overflow-wrap: anywhere;
+}
+.elitax-footer-grid div > span, .elitax-policy > span { color: #d9e9ea; }
+.elitax-policy { max-width: 29ch; }
+.elitax-policy summary {
+  padding-block: .64rem;
+  cursor: pointer;
+  text-underline-offset: .25em;
+}
+.elitax-policy summary:hover { text-decoration: underline; }
+.elitax-policy > span { display: block; margin-block: .15rem .75rem; font-size: .9rem; }
+.elitax-copyright {
+  border-top: 1px solid #41606a;
+  padding-block: 1.35rem;
+  color: #d9e9ea;
+  font-size: .86rem;
+}
+
+@media (max-width: 56rem) {
+  .elitax-footer .elitax-footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 36rem) {
+  .elitax-footer .elitax-footer-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.elitax-partner-grid,
+.elitax-service-grid,
+.elitax-principle-grid {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.elitax-partner-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: clamp(.85rem, 1.45vw, 1.4rem);
+}
+.elitax-partner-grid > li,
+.elitax-service-grid > li { min-width: 0; }
+.elitax-partner-card,
+.elitax-service-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  text-decoration: none;
+  transition: border-color .18s ease, background-color .18s ease;
+}
+.elitax-partner-card:hover,
+.elitax-service-card:hover { border-color: var(--blue); background-color: var(--pale); }
+.elitax-portrait {
+  display: grid;
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  overflow: hidden;
+  background: var(--pale);
+}
+.elitax-portrait img,
+.elitax-initials {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: center 24%;
+}
+.elitax-initials {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(155deg, var(--navy-light), var(--navy));
+  color: var(--aqua);
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 550;
+  letter-spacing: .035em;
+}
+.elitax-partner-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: clamp(.85rem, 1.3vw, 1.35rem);
+}
+.elitax-partner-copy strong {
+  font-size: clamp(1.12rem, 1.65vw, 1.5rem);
+  line-height: 1.12;
+  letter-spacing: -.033em;
+}
+.elitax-partner-role { margin-block: .55rem .8rem; color: var(--muted); font-size: .89rem; }
+.elitax-partner-summary { margin-bottom: .8rem; color: var(--muted); font-size: .9rem; }
+.elitax-partner-action { margin-top: auto; color: var(--blue); font-size: .85rem; font-weight: 650; }
+.elitax-section-action { margin-top: clamp(1.4rem, 3vw, 2.4rem); }
+
+.elitax-approach,
+.elitax-interior { background: var(--pale); }
+.elitax-principle-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.elitax-principle-grid li {
+  padding: clamp(1rem, 2vw, 1.8rem);
+  border-top: 3px solid var(--blue);
+  background: var(--white);
+}
+.elitax-principle-grid h3 { font-size: clamp(1.22rem, 1.85vw, 1.58rem); }
+.elitax-principle-grid p { margin-top: .75rem; color: var(--muted); }
+
+.elitax-service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.elitax-service-card { min-height: 14rem; padding: clamp(1.15rem, 2.4vw, 2rem); }
+.elitax-service-card h3 { font-size: clamp(1.5rem, 2.15vw, 2rem); }
+.elitax-service-card p { margin-block: .9rem 1rem; color: var(--muted); }
+.elitax-card-arrow { margin-top: auto; color: var(--blue); font-size: 1.35rem; }
+.elitax-guides-home { padding-block: clamp(2rem, 5vw, 4rem); background: var(--pale); }
+.elitax-guides-home a { text-decoration: none; }
+.elitax-guides-home a:hover { color: var(--blue); }
+.elitax-guides-home span { color: var(--blue); font-size: .65em; }
+
+.elitax-work {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  background: #fafaf7;
+}
+.elitax-work h2 { margin-block: 0 clamp(1.75rem, 4vw, 3.6rem); }
+.elitax-work-step {
+  display: grid;
+  gap: clamp(1.4rem, 4vw, 3rem);
+  align-items: center;
+  padding-block: clamp(1.75rem, 5vw, 3.75rem);
+  border-block-start: 1px solid #b6c6c6;
+}
+.elitax-work-copy h3 {
+  max-width: 25ch;
+  font-size: clamp(1.45rem, 2.65vw, 2.25rem);
+}
+.elitax-work-copy p { max-width: 48ch; margin-block: .9rem 1.25rem; color: var(--muted); }
+.elitax-work-image, .elitax-closing-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: clamp(.8rem, 2vw, 1.7rem);
+  object-fit: cover;
+}
+.elitax-work-image { aspect-ratio: 4 / 3; }
+.elitax-work-visual { display: none; }
+@media (min-width: 48rem) {
+  .elitax-work-step { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+}
+@media (min-width: 62rem) and (min-height: 42rem) and (prefers-reduced-motion: no-preference) {
+  .elitax-work[data-work-sticky] { padding-block: 6.5rem 5.25rem; }
+  .elitax-work[data-work-sticky] > .site-shell { width: min(100% - 8rem, 82rem); }
+  .elitax-work[data-work-sticky] h2 {
+    min-block-size: 8.0625rem;
+    margin-block-end: 5.8125rem;
+  }
+  .elitax-work[data-work-sticky] .elitax-work-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  .elitax-work[data-work-sticky] .elitax-work-step {
+    grid-template-columns: minmax(0, 1fr);
+    min-block-size: 100vh;
+    padding-inline: 2rem;
+  }
+  .elitax-work[data-work-sticky] .elitax-work-step .elitax-work-image { display: none; }
+  .elitax-work[data-work-sticky] .elitax-work-visual {
+    position: sticky;
+    inset-block-start: 0;
+    display: grid;
+    place-items: center;
+    justify-self: end;
+    inline-size: 83%;
+    block-size: 100vh;
+  }
+  .elitax-work-frame {
+    position: relative;
+    inline-size: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: clamp(.8rem, 2vw, 1.7rem);
+    background: var(--pale);
+  }
+  .elitax-work-visual .elitax-work-image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+.elitax-prefooter { padding-block: clamp(3rem, 8vw, 8.5rem); background: var(--pale); }
+.elitax-prefooter-layout + .elitax-prefooter-layout { margin-block-start: clamp(2.5rem, 7vw, 7rem); }
+.elitax-prefooter-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(2rem, 7vw, 8rem);
+}
+.elitax-prefooter-copy {
+  border-inline-start: 1px solid #729a98;
+  padding-inline-start: clamp(1.1rem, 3.4vw, 3.25rem);
+}
+.elitax-prefooter-copy h2 { max-width: 14ch; }
+.elitax-prefooter-copy p { max-width: 48ch; margin-block: 1rem .9rem; color: var(--muted); }
+.elitax-prefooter-image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 1;
+  border-radius: clamp(.85rem, 2.4vw, 2.25rem);
+  object-fit: cover;
+  object-position: center;
+}
+.elitax-closing {
+  padding-block: clamp(2.6rem, 6vw, 5.75rem);
+  background: var(--navy);
+  color: var(--white);
+}
+.elitax-closing-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+  align-items: center;
+  gap: clamp(1.65rem, 6vw, 6rem);
+  padding-block-end: clamp(2.4rem, 5vw, 5rem);
+  border-bottom: 1px solid #41606a;
+}
+.elitax-closing-layout > div { max-width: 44rem; }
+.elitax-closing p { margin-block: .8rem 1.45rem; color: #d9e9ea; }
+.elitax-closing-image { aspect-ratio: 3 / 2; }
+.elitax-closing :focus-visible { outline-color: var(--aqua); }
+main:has(> .elitax-closing:last-child) + .elitax-footer { padding-block-start: 0; }
+@media (min-width: 48.0625rem) and (min-height: 44rem) and (prefers-reduced-motion: no-preference) {
+  .elitax-prefooter-layout {
+    min-block-size: 74svh;
+    align-items: start;
+  }
+  .elitax-prefooter-copy {
+    position: sticky;
+    inset-block-start: calc(var(--header-height) + 14svh);
+  }
+}
+@media (max-width: 48rem) {
+  .elitax-prefooter-layout, .elitax-closing-layout { grid-template-columns: minmax(0, 1fr); }
+}
+.elitax-contact-banner { padding-inline: 0; }
+.elitax-contact-banner > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.8rem;
+}
+.elitax-contact-banner > div > div { max-width: min(100%, 45rem); }
+
+.elitax-interior { padding-block: clamp(2.8rem, 6vw, 6rem); }
+.elitax-interior-layout { display: grid; align-items: center; gap: clamp(1.5rem, 5vw, 5rem); }
+.elitax-interior-visual .elitax-interior-layout { grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); }
+.elitax-partner-hero .elitax-interior-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 22rem); }
+.elitax-interior-copy { min-width: 0; }
+.elitax-crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .4rem;
+  margin-bottom: clamp(1.05rem, 2.2vw, 2rem);
+  color: var(--blue);
+  font-size: .85rem;
+}
+.elitax-crumbs a { text-underline-offset: .2em; }
+.elitax-interior h1 { overflow-wrap: anywhere; }
+.elitax-interior-copy > p:not(.eyebrow) {
+  margin-top: 1.2rem;
+  max-width: 58ch;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+.elitax-interior-copy > p.elitax-bio-role { font-weight: 650; color: var(--blue); }
+.elitax-interior-copy .text-link { margin-top: .8rem; overflow-wrap: anywhere; }
+.elitax-interior-image { overflow: hidden; background: var(--line); }
+.elitax-interior-image img { width: 100%; aspect-ratio: 1.55; object-fit: cover; }
+.elitax-cv-portrait { width: min(100%, 22rem); }
+.elitax-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 19rem);
+  gap: clamp(1.75rem, 6vw, 6rem);
+  align-items: start;
+}
+.elitax-reading { max-width: 73ch; }
+.elitax-reading section + section { margin-top: 2.2rem; }
+.elitax-reading h2 { overflow-wrap: anywhere; }
+.elitax-side-links { padding: 1.2rem 1.4rem; background: var(--pale); border-top: 3px solid var(--blue); }
+.elitax-side-links h2 { font-size: 1.3rem; }
+.elitax-side-links ul { margin: .8rem 0 0; padding: 0; list-style: none; }
+.elitax-side-links li + li { border-top: 1px solid var(--line); }
+.elitax-side-links a { display: block; padding-block: .65rem; color: var(--blue); text-underline-offset: .23em; }
+
+.elitax-contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+  align-items: start;
+  gap: clamp(1.75rem, 7vw, 7rem);
+}
+.elitax-contact-layout h2 { font-size: clamp(1.85rem, 3vw, 2.85rem); }
+.elitax-contact-info { padding: clamp(1rem, 3vw, 2.25rem); background: var(--pale); border-top: 3px solid var(--blue); }
+.elitax-contact-info dt { font-weight: 650; }
+.elitax-contact-info dd { margin: .25rem 0 1rem; overflow-wrap: anywhere; }
+.elitax-contact-info p, .elitax-form-section > p { color: var(--muted); }
+.elitax-form-section > p { margin-block: .9rem 1.5rem; }
+.elitax-form-section fieldset { min-width: 0; margin: 0; padding: 0; border: none; }
+.elitax-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.elitax-form-grid label { display: grid; gap: .35rem; font-weight: 650; }
+.elitax-full-field { grid-column: 1 / -1; }
+.elitax-form-grid input,
+.elitax-form-grid select,
+.elitax-form-grid textarea {
+  width: 100%;
+  min-width: 0;
+  padding: .65rem .8rem;
+  border: 1px solid #91a4a4;
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--white);
+  font: inherit;
+  font-weight: 400;
+}
+.elitax-form-grid textarea { resize: vertical; }
+.elitax-consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .65rem;
+  align-items: start;
+  margin-block: 1.2rem;
+  color: var(--muted);
+}
+.elitax-consent input { width: 1.15rem; height: 1.15rem; margin: .2rem 0 0; accent-color: var(--blue); }
+.elitax-form-section button:disabled { opacity: .55; cursor: wait; }
+.elitax-form-status:not(:empty) {
+  margin-top: 1rem;
+  padding: .9rem 1rem;
+  border-left: 3px solid var(--blue);
+  background: var(--pale);
+}
+.elitax-form-status:focus { outline: none; }
+.elitax-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 64rem) {
+  .elitax-partner-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .elitax-principle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 48rem) {
+  .elitax-service-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .elitax-interior-visual .elitax-interior-layout,
+  .elitax-contact-layout,
+  .elitax-detail-grid { grid-template-columns: minmax(0, 1fr); }
+  .elitax-partner-hero .elitax-interior-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 15rem); }
+}
+@media (max-width: 37rem) {
+  .elitax-partner-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .elitax-service-grid,
+  .elitax-principle-grid,
+  .elitax-partner-hero .elitax-interior-layout,
+  .elitax-form-grid { grid-template-columns: minmax(0, 1fr); }
+  .elitax-service-card { min-height: auto; }
+  .elitax-cv-portrait { max-width: 16rem; }
+}
+@media (max-width: 25rem) {
+  .elitax-partner-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .elitax-partner-card, .elitax-service-card { transition: none; }
+}
+
+.elitax-partner-panel {
+  --card-height: clamp(31rem, 39vw, 38rem);
+  --card-padding: clamp(1.25rem, 2.8vw, 2.9rem);
+  width: min(calc(100% - var(--gutter) * 2), 96rem);
+  margin-inline: auto;
+  grid-template-columns: minmax(0, .55fr) minmax(0, 1fr);
+}
+.elitax-partner-panel .profile-bio .text-link { margin-top: .6rem; }
+.elitax-partner-panel .elitax-panel-directory {
+  margin-top: .35rem;
+  border-top: 1px solid var(--line);
+  width: 100%;
+}
+.elitax-panel-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: #49626f;
+}
+.elitax-panel-profile {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-height: 0;
+  padding: 0;
+  gap: 0;
+  background: var(--navy);
+}
+.elitax-panel-profile::before { content: none; }
+.elitax-panel-portrait {
+  position: absolute;
+  inset: 0 0 auto;
+  display: block;
+  height: 88%;
+  overflow: hidden;
+  background: var(--navy);
+}
+.elitax-panel-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+.elitax-panel-profile[data-profile="bio-kurtulus-ozan-keser"] img { object-position: 53% top; }
+.elitax-panel-profile[data-profile="bio-riza-altin"] img { object-position: 48% top; }
+.elitax-panel-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to top, var(--navy) 0%, #102b3cbf 17%, #102b3c38 37%, transparent 55%);
+}
+.elitax-panel-profile .founder-identity {
+  position: relative;
+  grid-row: 2;
+  align-content: end;
+  gap: .4rem;
+  margin: 0;
+  padding: .8rem clamp(.5rem, 1vw, .95rem) 1rem;
+  pointer-events: none;
+}
+.elitax-panel-profile .founder-identity strong {
+  font-size: clamp(.94rem, 1.35vw, 1.4rem);
+  overflow-wrap: anywhere;
+}
+.elitax-panel-profile .founder-identity > span {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  color: #e4eeef;
+  font-size: .78rem;
+  line-height: 1.25;
+  transition: max-height 220ms ease, opacity 160ms ease;
+}
+.elitax-panel-profile:hover .founder-identity > span,
+.elitax-panel-profile:focus-visible .founder-identity > span,
+.elitax-panel-profile[aria-pressed="true"] .founder-identity > span {
+  max-height: 7rem;
+  opacity: 1;
+}
+.elitax-panel-profile .elitax-initials {
+  background: #17394b;
+  font-size: clamp(1.8rem, 3.9vw, 4.2rem);
+}
+@media (min-width: 42.001rem) {
+  .elitax-panel-profile .founder-identity { min-height: 3.5rem; }
+  .elitax-panel-profile { min-height: clamp(21rem, 30vw, 29rem); }
+}
+@media (max-width: 56rem) {
+  .elitax-partner-panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "label" "portraits" "biography";
+    grid-template-rows: auto;
+  }
+  .elitax-partner-panel > .stack-label { padding-bottom: .7rem; }
+}
+@media (max-width: 42rem) {
+  .elitax-panel-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .elitax-panel-profile { min-height: auto; aspect-ratio: 4 / 6; }
+  .elitax-panel-profile .founder-identity strong { font-size: 1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .elitax-panel-profile .founder-identity > span { transition: none; }
+}
+@media (56.001rem <= width <= 72rem) {
+  .elitax-partner-panel {
+    --card-height: 29rem;
+    --card-padding: 1.35rem;
+    grid-template-columns: minmax(0, .49fr) minmax(0, 1fr);
+  }
+  .elitax-partner-panel .profile-bio p { font-size: .92rem; }
+  .elitax-panel-portrait { height: 83%; }
+}
+
+/* The main visual reaches the viewport edge while the copy follows the site grid. */
+@media (min-width: 48.001rem) {
+  .home-hero .hero-layout {
+    width: calc(100% - max(var(--gutter), (100% - 82rem) / 2));
+    margin-left: max(var(--gutter), (100% - 82rem) / 2);
+    margin-right: 0;
+  }
+}
+
+.elitax-stack {
+  --stack-ink: #173a43;
+  position: relative;
+  isolation: isolate;
+  padding: clamp(1.8rem, 4.4vw, 4.7rem) clamp(.75rem, 2.05vw, 2.2rem) clamp(1.8rem, 3.5vw, 3.5rem);
+  background: linear-gradient(180deg, #eef3ee 0%, #cbdfda 63%, #f4f6f1 100%);
+}
+.cards_products-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.3vw, 2rem);
+  width: min(100%, 82rem);
+  margin-inline: auto;
+}
+.elitax-stack-panel {
+  --stack-surface: #f6f5ef;
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  isolation: isolate;
+  margin-inline: auto;
+  width: min(100%, 100rem);
+  border: 1px solid #b5c8c7b3;
+  border-radius: clamp(.95rem, 1.65vw, 1.65rem);
+  background: var(--stack-surface);
+  transform-origin: center;
+}
+.elitax-stack-title {
+  display: flex;
+  min-height: 3.2rem;
+  align-items: center;
+  gap: .65rem;
+  padding: .7rem clamp(1.15rem, 2.4vw, 2.4rem);
+  color: var(--stack-ink);
+  font-size: clamp(1.17rem, 1.65vw, 1.62rem);
+  font-weight: 650;
+  line-height: 1.14;
+  letter-spacing: -.035em;
+  border-bottom: 1px solid #7793954d;
+}
+.elitax-stack-title::before {
+  content: "";
+  flex: 0 0 1.3rem;
+  height: 2px;
+  background: #528d88;
+}
+.elitax-stack-intro {
+  margin-bottom: 1.15rem;
+  max-width: 85ch;
+  color: var(--muted);
+  font-size: clamp(.96rem, 1.25vw, 1.12rem);
+}
+.elitax-stack-content { padding: clamp(1rem, 1.8vw, 1.7rem) clamp(1.15rem, 2.4vw, 2.4rem) clamp(1.25rem, 2.8vw, 2.65rem); }
+.elitax-stack-partner { --stack-surface: #f3f3eb; }
+.elitax-stack-approach { --stack-surface: #e8f1ef; }
+.elitax-stack-services { --stack-surface: #f3f6f4; }
+.elitax-stack-guides { --stack-surface: #e1ecea; }
+.elitax-stack-guides .elitax-stack-title { border-bottom: 0; }
+.elitax-stack-title a { display: inline-flex; align-items: center; gap: .6rem; color: inherit; text-decoration: none; }
+.elitax-stack-title a:hover { text-decoration: underline; text-underline-offset: .18em; }
+.elitax-stack-title a span { color: var(--blue); font-size: .75em; }
+
+.elitax-stack .elitax-partner-panel {
+  grid-template-areas: "biography portraits";
+  grid-template-rows: 1fr;
+  grid-area: auto;
+  min-height: clamp(24rem, 37vw, 35rem);
+  width: 100%;
+  margin: 0;
+  border: 1px solid #a2b8b3aa;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.elitax-stack .elitax-partner-panel > .stack-label { display: none; }
+.elitax-stack .elitax-partner-panel > .stack-body { align-self: center; }
+@media (max-width: 56rem) {
+  .elitax-stack .elitax-partner-panel { grid-template-areas: "portraits" "biography"; grid-template-rows: auto; }
+}
+
+/* One surface per section, with media running to its edges. */
+.elitax-stack-panel {
+  width: min(100%, 97rem);
+  background: #fff;
+  border-color: rgb(52 83 82 / 16%);
+}
+.elitax-stack-title {
+  min-height: 3.9rem;
+  font-weight: 550;
+  font-size: clamp(1.1rem, 1.4vw, 1.45rem);
+}
+.elitax-stack-title::before {
+  width: .68em; height: .68em; flex-basis: .68em;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: transparent;
+}
+.elitax-stack .elitax-stack-content { padding: 0; }
+.elitax-stack-partner .elitax-stack-intro {
+  margin: 0; padding: .85rem clamp(1rem, 2.4vw, 2.4rem);
+  max-width: 100%; font-size: .95rem; background: #f6f8f5;
+}
+.elitax-stack .elitax-partner-panel {
+  display: grid; border: 0; border-radius: 0; background: #fff;
+  grid-template-columns: minmax(17rem, .39fr) minmax(0, 1fr);
+  min-height: clamp(23rem, 28vw, 32rem);
+}
+.elitax-stack .elitax-partner-panel > .stack-body {
+  padding: clamp(1.15rem, 2vw, 2.3rem);
+}
+.elitax-panel-profile { min-height: 0; }
+.elitax-panel-portrait { inset: 0; height: 100%; }
+.elitax-stack .elitax-panel-directory { margin-top: 1rem; padding-top: .65rem; }
+.elitax-stack-approach .elitax-stack-content,
+.elitax-stack-services .elitax-stack-content {
+  display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+}
+.deck-copy { padding: clamp(1.25rem, 2.6vw, 2.8rem); }
+.deck-photo { position: relative; min-height: 100%; overflow: hidden; }
+.deck-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.deck-copy .elitax-stack-intro { color: var(--ink); font-size: clamp(1.2rem, 1.8vw, 1.65rem); line-height: 1.3; margin: 0 0 1.35rem; }
+.deck-copy .elitax-principle-grid,
+.deck-copy .elitax-service-grid { display: grid; grid-template-columns: 1fr; gap: 0; }
+.deck-copy .elitax-principle-grid li,
+.deck-copy .elitax-service-card {
+  position: relative; min-height: 0; padding: .7rem 0;
+  border: 0; border-top: 1px solid var(--line); background: transparent;
+}
+.deck-copy .elitax-service-card { padding-right: 2.4rem; }
+.deck-copy h3 { font-size: clamp(1.02rem, 1.28vw, 1.3rem); line-height: 1.16; }
+.deck-copy .elitax-service-card p, .deck-copy .elitax-principle-grid p {
+  font-size: .95rem; line-height: 1.4; margin: .34rem 0 0;
+}
+.deck-copy .elitax-card-arrow { position: absolute; top: .7rem; right: 0; font-size: 1rem; }
+.deck-copy .elitax-service-card:hover h3 { text-decoration: underline; text-underline-offset: .16em; }
+@media (min-width: 992px) {
+  .elitax-stack { padding-inline: min(5vw, 4rem); }
+  .elitax-stack-panel { width: 100%; }
+  .elitax-stack-panel:has(.elitax-stack-content) {
+    min-height: min(62vw, 95svh);
+    grid-template-rows: auto 1fr;
+  }
+  .elitax-stack-partner .elitax-stack-content {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+  .elitax-stack-panel:has(.deck-photo) {
+    grid-template-columns: 1fr 1fr;
+  }
+  .elitax-stack-panel:has(.deck-photo) .elitax-stack-content { display: contents; }
+  .elitax-stack-panel .deck-photo { grid-area: 1 / 2 / 3 / 3; }
+  .elitax-stack-panel .deck-copy { grid-area: 2 / 1; }
+  .elitax-stack .elitax-panel-portrait { bottom: auto; height: auto; aspect-ratio: 4 / 5; }
+  .deck-copy { padding: clamp(1rem, 1.6vw, 1.7rem); }
+  .deck-copy .elitax-stack-intro {
+    font-size: clamp(.98rem, 1.32vw, 1.2rem);
+    margin-bottom: 1rem;
+  }
+  .deck-copy .elitax-principle-grid,
+  .deck-copy .elitax-service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .55rem 1.15rem;
+  }
+  .deck-copy .elitax-service-card { padding-right: 1.15rem; }
+  .deck-copy .elitax-service-card p,
+  .deck-copy .elitax-principle-grid p { font-size: .88rem; }
+}
+.elitax-stack .gradient-cards {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--deck-tint, #879f9c);
+  filter: blur(2rem);
+}
+@media (min-width: 992px) and (prefers-reduced-motion: no-preference) {
+  .elitax-stack:has(.cards_products-wrap.is-animated)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 40% calc(28% + var(--deck-tint-shift, 0%)), var(--deck-tint, #879f9c), transparent 72%);
+    filter: blur(2.5rem);
+    opacity: .05;
+  }
+  .cards_products-wrap.is-animated { gap: 2rem; }
+  .cards_products-wrap.is-animated > .cards_products-item {
+    --deck-progress: 0;
+    --deck-min-height: 41.5rem;
+    position: sticky;
+    top: var(--deck-pin, 0);
+    align-self: center;
+    width: calc(100% + (var(--deck-viewport-width, 100vw) - 100%) * (1 - var(--deck-progress)));
+    margin-inline: 0;
+    min-height: max(var(--deck-min-height), var(--deck-measured-height, 0px));
+    transform: scale(calc(1 - .05 * var(--deck-progress)));
+    transform-origin: top center;
+    box-shadow: 0 .7rem 2rem #102b3c16;
+  }
+  .cards_products-wrap.is-animated.is-measuring > .cards_products-item {
+    width: 100%;
+    min-height: var(--deck-min-height);
+    transform: none;
+  }
+  .cards_products-wrap.is-animated > .cards_products-item:nth-child(1) { margin-bottom: 13rem; z-index: 1; }
+  .cards_products-wrap.is-animated > .cards_products-item:nth-child(2) { margin-bottom: 9rem; z-index: 2; }
+  .cards_products-wrap.is-animated > .cards_products-item:nth-child(3) { margin-bottom: 5rem; z-index: 3; }
+  .cards_products-wrap.is-animated > .cards_products-item:nth-child(4) { margin-bottom: 0; z-index: 4; }
+  .cards_products-wrap.is-animated .gradient-cards { opacity: calc(.05 * var(--deck-progress)); }
+  .site-header.has-scroll-motion { transition: transform .35s ease; }
+  .site-header.has-scroll-motion.is-scroll-hidden:not(:focus-within):not([data-menu-open]) { transform: translateY(-100%); }
+}
+.elitax-stack .elitax-stack-guides {
+  align-content: center;
+  min-height: clamp(10rem, 35vw, 25rem);
+  background: linear-gradient(90deg, #102b3cf5, #102b3ca8 43%, #102b3c2e),
+    var(--navy) url("/elitax-sunum/assets/editorial-folios.webp") center / cover no-repeat;
+}
+.elitax-stack .elitax-stack-guides .elitax-stack-title { color: var(--white); font-size: clamp(1.55rem, 3vw, 2.9rem); }
+.elitax-stack .elitax-stack-guides .elitax-stack-title span { color: var(--aqua); }
+@media (min-width: 992px) and (600px <= height <= 800px) and (prefers-reduced-motion: no-preference) {
+  .cards_products-wrap.is-animated > .cards_products-item { --deck-min-height: 37rem; }
+}
+@media (992px <= width <= 1320px) and (max-height: 800px) {
+  .elitax-stack-panel:has(.deck-photo) { grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); }
+  .elitax-stack .elitax-partner-panel { grid-template-columns: minmax(17rem, .48fr) minmax(0, 1fr); }
+  .elitax-stack .profile-bio h3 { font-size: clamp(1.45rem, 2.1vw, 1.8rem); }
+  .elitax-stack .profile-bio p { font-size: .94rem; line-height: 1.43; }
+  .deck-copy .elitax-stack-intro { font-size: 1.02rem; }
+  .deck-copy .elitax-service-card,
+  .deck-copy .elitax-principle-grid li { padding-block: .45rem; }
+}
+@media (992px <= width <= 1120px) and (max-height: 800px) {
+  .elitax-stack-panel:has(.deck-photo) { grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); }
+}
+.elitax-footer { position: relative; isolation: isolate; overflow: hidden; padding-bottom: 2rem; }
+.elitax-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .055;
+  background: center / 110% auto no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 210'%3E%3Ctext x='500' y='188' text-anchor='middle' font-family='Arial,sans-serif' font-size='260' font-weight='700' textLength='990' lengthAdjust='spacingAndGlyphs' fill='white'%3EELITAX%3C/text%3E%3C/svg%3E");
+}
+@media (max-width: 56rem) {
+  .elitax-stack .elitax-partner-panel { grid-template-columns: minmax(0, 1fr); min-height: auto; }
+  .elitax-panel-gallery {
+    display: grid; grid-template-columns: none; grid-auto-flow: column;
+    grid-auto-columns: clamp(8.5rem, 35vw, 14rem);
+    overflow-x: auto; scroll-snap-type: x proximity;
+    background: var(--white); scrollbar-color: #577774 #e7eeeb;
+  }
+  .elitax-panel-profile { min-height: 0; aspect-ratio: 3 / 4; scroll-snap-align: start; }
+  .elitax-panel-profile .founder-identity { padding: .6rem; }
+  .elitax-stack .elitax-partner-panel > .stack-body { padding: 1.15rem; }
+}
+@media (max-width: 48rem) {
+  .elitax-stack-approach .elitax-stack-content,
+  .elitax-stack-services .elitax-stack-content { grid-template-columns: 1fr; }
+  .deck-photo { height: clamp(10rem, 43vw, 16rem); min-height: 0; }
+  .cards_products-wrap { gap: 1.25rem; }
+}

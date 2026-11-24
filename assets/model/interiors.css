@@ -1,0 +1,47 @@
+/* The picture and text share one continuous spread across viewport sizes. */
+.detail-hero.inside-opening {
+  padding: 0;
+  background: var(--opening-color);
+  color: var(--ink);
+  border: 0;
+}
+.inside-opening .inside-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, .94fr);
+  align-items: stretch;
+  gap: 0;
+}
+.inside-copy {
+  min-width: 0;
+  padding: clamp(1.4rem, 3vw, 2.75rem) clamp(1.5rem, 4vw, 5rem) clamp(2.8rem, 5vw, 5rem) 0;
+}
+.inside-crumbs {display: flex; gap: .75rem; color: #234850; font-size: .82rem;}
+.inside-crumbs a {color: inherit; text-decoration: none;}
+.inside-crumbs a:hover {text-decoration: underline;}
+.inside-heading {margin-top: clamp(2rem, 4vw, 4.8rem);}
+.inside-kicker {display: flex; gap: .75rem; align-items: center; margin: 0; color: #234850; font-size: .76rem; letter-spacing: .13em; font-weight: 650; text-transform: uppercase;}
+.inside-kicker::before {content: ""; width: 1.9rem; height: 2px; background: currentColor;}
+.inside-opening h1 {font: inherit; font-weight: 500; font-size: clamp(2.3rem, 4.2vw, 4.8rem); line-height: 1.04; letter-spacing: -.056em; margin: .95rem 0 1.25rem; text-wrap: balance; overflow-wrap: anywhere; color: var(--ink);}
+.inside-lead {max-width: 55ch; color: #234850; font-size: clamp(1rem, 1.34vw, 1.24rem); line-height: 1.57; margin: 0;}
+.inside-print {position: relative; min-height: 18rem; overflow: hidden; background: #23464e;}
+.inside-print img {position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;}
+@media (prefers-reduced-motion: no-preference) {
+  .inside-print img {animation: opening-print .9s cubic-bezier(.2,.65,.25,1) both;}
+  .inside-heading {animation: opening-type .65s cubic-bezier(.2,.65,.25,1) both;}
+  @keyframes opening-print {from {transform: scale(1.045);} to {transform: scale(1);}}
+  @keyframes opening-type {from {transform: translateY(.8rem); opacity:.5;} to {transform: translateY(0); opacity:1;}}
+}
+@media (max-width: 46rem) {
+  .inside-opening .inside-spread {grid-template-columns: 1fr;}
+  .inside-copy {padding: 1.2rem 0 1.75rem;}
+  .inside-heading {margin-top: 1.65rem;}
+  .inside-print {min-height: 0; height: clamp(9rem, 42vw, 15rem);}
+}
+
+.corporate-story .corporate-print {margin: 2.25rem 0;}
+.corporate-print img {width: 100%; aspect-ratio: 2.25; height: auto; object-fit: cover;}
+.corporate-story .detail-sidebar {background: #eaf2ef; border-top: 3px solid #135b65; padding: clamp(1.25rem, 2.4vw, 2.4rem);}
+.error-content {padding-block: min(12vh, 8rem);}
+.error-content .button {margin-top: 1.5rem;}
+.intl-office-layout .intl-office-contact {border-radius: 0; border: none; border-top: 4px solid #135b65; background: #eaf2ef;}
+.intl-office-layout .intl-office-visit {border-radius: 0; border: none; border-top: 4px solid #a9dbd6; background: #f4f3ee;}

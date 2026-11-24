@@ -1,0 +1,16 @@
+.footer-directory { padding-block: clamp(2rem,5vw,4rem) 1rem; }
+.footer-directory h2 { margin: 0 0 1.8rem; font-size: clamp(1.65rem,3vw,2.7rem); font-weight: 500; }
+.footer-folders, .footer-directory .footer-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 2rem clamp(1.5rem,4vw,4rem); }
+.footer-folders h3 { margin: 0 0 .75rem; font-size: 1rem; font-weight: 600; color: #b7dbdb; }
+.footer-folders ul { margin: 0; padding: 0; list-style: none; }
+.footer-directory a { color: inherit; text-decoration: none; }
+.footer-directory a:hover { text-decoration: underline; text-underline-offset: .22em; }
+.footer-folders li a { display: block; width: fit-content; padding-block: .32rem; line-height: 1.42; color: #edf4f4; }
+.footer-directory .footer-grid { margin-top: 2.5rem; border-top: 1px solid #547078; }
+@media(max-width:52rem) {
+  .footer-folders, .footer-directory .footer-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:35rem) {
+  .footer-folders, .footer-directory .footer-grid { grid-template-columns: 1fr; }
+  .footer-folders li a { padding-block: .55rem; }
+}
