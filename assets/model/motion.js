@@ -39,7 +39,7 @@
         const extra = document.documentElement.clientWidth - width;
         pins = cards.map(card => parseFloat(getComputedStyle(card).top));
         stack.style.setProperty("--entry-margin", extra / 2 + "px");
-        stack.style.setProperty("--entry-scale", extra / width);
+        stack.style.setProperty("--entry-width", extra + "px");
         schedule();
       } else {
         cards.forEach((card, index) => {

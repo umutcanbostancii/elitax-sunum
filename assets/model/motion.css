@@ -5,8 +5,7 @@
 
   .home-stack.is-sticky .stack-card {
     justify-self: center;
-    width: 100%;
-    transform: scaleX(calc(1 + var(--entry-scale, 0) * var(--stack-spread, 0)));
+    width: calc(100% + var(--entry-width, 0px) * var(--stack-spread, 0));
   }
 }
 
