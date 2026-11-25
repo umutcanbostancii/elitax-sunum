@@ -633,6 +633,12 @@ main:focus { outline: none; }
   border-radius: var(--panel-radius);
 }
 
+.service-menu summary[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .45em;
+  text-decoration-color: var(--blue);
+}
+
 .model-home-stack .model-partners-media {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));

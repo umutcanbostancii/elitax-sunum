@@ -690,6 +690,12 @@ main:focus { outline: none; }
   border-radius: var(--panel-radius);
 }
 
+.service-menu summary[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .45em;
+  text-decoration-color: var(--blue);
+}
+
 .model-about-band { padding-block: clamp(3rem, 7vw, 6.5rem); }
 .model-about-grid {
   display: grid;
@@ -884,6 +890,44 @@ main:focus { outline: none; }
 }
 .model-partner-opening .inside-print { justify-self: center; width: min(100%,28rem); height: auto; aspect-ratio: 1.12; background: #c9c9c9; }
 .model-partner-opening .inside-print img { object-fit: contain; object-position: center bottom; }
+
+
+.detail-cta, .contact-page .elitax-form-section { border-radius: var(--panel-radius); }
+.contact-page .contact-office-grid { margin-bottom: 0; }
+.contact-page .model-contact-card {
+  border: 1px solid var(--line);
+  background: #edf4f2;
+  padding: clamp(1.4rem, 4vw, 3.5rem);
+}
+.contact-page .model-contact-card:hover { transform: none; box-shadow: none; }
+.contact-page .model-contact-card h2,
+.contact-write h3 { font-size: clamp(1.45rem, 2.5vw, 2.1rem); line-height: 1.12; margin-bottom: 1.15rem; }
+.contact-page .model-contact-card dl { margin-bottom: 0; }
+.contact-write { border-top: 1px solid #afc9c6; padding-top: 1.45rem; margin-top: 1.45rem; }
+.contact-write .button { width: fit-content; }
+@media (min-width: 58rem) {
+  .contact-page > .site-shell:has(.contact-write:not([hidden])) { display: block; }
+  .contact-page .model-contact-card:has(.contact-write:not([hidden])) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+    gap: clamp(1.75rem, 5vw, 5rem);
+    align-items: center;
+  }
+  .contact-page .model-contact-card:has(.contact-write:not([hidden])) dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-write { margin: 0; padding: .2rem 0 .2rem clamp(1.75rem, 4vw, 4rem); border-top: 0; border-inline-start: 1px solid #afc9c6; }
+}
+@media (max-width: 46rem) {
+  .service-tabs {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: .4rem;
+    border-radius: 1rem;
+    overflow: visible;
+  }
+  .service-tabs a { max-width: none; min-height: 2.75rem; padding: .6rem .65rem; border-radius: .65rem; font-size: .875rem; }
+  .service-tabs a:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
 
 .footer-directory { padding-block: clamp(2rem,5vw,4rem) 1rem; }
 .footer-directory h2 { margin: 0 0 1.8rem; font-size: clamp(1.65rem,3vw,2.7rem); font-weight: 500; }

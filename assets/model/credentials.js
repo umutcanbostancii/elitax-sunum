@@ -24,6 +24,19 @@ if (track && "IntersectionObserver" in window) {
     visible = entry.isIntersecting;
     schedule();
   }).observe(track);
+  const preparePhotos = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting || !desktop.matches) return;
+    photos.forEach(photo => {
+      photo.loading = "eager";
+      photo.decode().catch(() => {});
+    });
+  }, { rootMargin: "700px 0px" });
+  preparePhotos.observe(track);
+  desktop.addEventListener("change", () => {
+    preparePhotos.unobserve(track);
+    preparePhotos.observe(track);
+    schedule();
+  });
   addEventListener("scroll", schedule, { passive: true });
   addEventListener("resize", schedule);
 }

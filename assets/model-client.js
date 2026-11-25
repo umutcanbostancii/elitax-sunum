@@ -151,7 +151,12 @@ document.querySelectorAll("[data-sections]").forEach(group => {
       panels[i].hidden = i !== index;
     });
     const active = tabs[index];
-    list.scrollLeft += active.getBoundingClientRect().left - list.getBoundingClientRect().left;
+    if (list.scrollWidth > list.clientWidth) {
+      const bounds = list.getBoundingClientRect();
+      const tab = active.getBoundingClientRect();
+      if (tab.left < bounds.left) list.scrollLeft += tab.left - bounds.left;
+      if (tab.right > bounds.right) list.scrollLeft += tab.right - bounds.right;
+    }
   }
   function fromAddress() {
     const index = tabs.findIndex(tab => tab.hash === location.hash);

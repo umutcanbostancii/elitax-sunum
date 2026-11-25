@@ -185,3 +185,9 @@
 .detail-page :is(.model-about-photo img, .model-team-cover-portrait, .team-portrait, .model-contact-card) {
   border-radius: var(--panel-radius);
 }
+
+.service-menu summary[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: .45em;
+  text-decoration-color: var(--blue);
+}
