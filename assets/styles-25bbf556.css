@@ -677,8 +677,7 @@ main:focus { outline: none; }
   --menu-corners: 0 0 var(--panel-radius) var(--panel-radius);
   --page-title-size: clamp(2.5rem, 5vw, 4.75rem);
 }
-.site-header, .mega-panel { border-radius: var(--menu-corners); }
-.site-header:has(.service-menu[open]), .site-header[data-menu-open] { border-radius: 0; }
+.mega-panel { border-radius: var(--menu-corners); }
 .site-header[data-menu-open] .site-menu { border-radius: var(--menu-corners); }
 .home-page .hero-content h1, .detail-page main :is(.inside-opening, .team-hero) h1 {
   font-size: var(--page-title-size);
