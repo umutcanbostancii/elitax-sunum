@@ -13,8 +13,15 @@
 <meta property="og:site_name" content="ELITAX">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"ELITAX"},{"@context":"https://schema.org","@type":"WebPage","name":"İletişim","description":"Vergi tasdik, danışmanlık, şirket yapılandırmaları, kurumsal finansman veya outsource muhasebe ihtiyaçlarınız hakkında doğrudan ortaklarımızla görüşmek için…","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"ELITAX","inLanguage":"tr-TR"}}]</script>
 <link rel="icon" href="/elitax-sunum/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/elitax-sunum/assets/styles-82083ea7.css?v=b98245d9d6da">
+<script>
+try {
+  const font = localStorage.getItem("elitax-display-font");
+  if (font) document.documentElement.dataset.displayFont = font;
+} catch {}
+</script>
+<link rel="stylesheet" href="/elitax-sunum/assets/styles-cf8ddde4.css?v=97dd3f59065f">
 <script defer src="/elitax-sunum/assets/model/site.js?v=a1da2abaac76"></script>
+<script defer src="/elitax-sunum/assets/model/font-picker.js?v=e1a52c5e4274"></script>
 <script defer src="/elitax-sunum/assets/model-client.js?v=c52fbb476746"></script>
 </head>
 <body id="page-top" class="detail-page">
@@ -31,6 +38,21 @@
 <a href="/elitax-sunum/ekibimiz/">Ekibimiz</a>
 <a href="/elitax-sunum/rehberler/">Rehberler</a>
 <a href="/elitax-sunum/iletisim/" aria-current="page" class="button button-dark">İletişim</a>
+<div class="font-picker" hidden>
+  <label for="site-font">Yazı fontu seç</label>
+  <select id="site-font" aria-describedby="font-picker-note">
+    <option value="literata" selected>Literata</option>
+    <option value="dm-sans">DM Sans</option>
+    <option value="ibm-plex-serif">IBM Plex Serif</option>
+    <option value="source-serif">Source Serif 4</option>
+    <option value="spectral">Spectral</option>
+    <option value="pt-serif">PT Serif</option>
+    <option value="crimson-text">Crimson Text</option>
+    <option value="baskervville">Baskervville</option>
+    <option value="noto-serif">Noto Serif</option>
+  </select>
+  <small id="font-picker-note">Tolga Abi buradan site fontu seçebilirsin</small>
+</div>
 </nav>
 </div>
 </header>

@@ -13,8 +13,15 @@
 <meta property="og:site_name" content="ELITAX">
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"ELITAX"},{"@context":"https://schema.org","@type":"WebPage","name":"Vergi Tasdik Hizmetleri","description":"Gelir ve kurumlar vergisi tam tasdik hizmetleri, KDV iadesi, Ar-Ge ve teknokent teşvik tasdikleri ile özel amaçlı YMM tasdik raporları.","inLanguage":"tr-TR","isPartOf":{"@type":"WebSite","name":"ELITAX","inLanguage":"tr-TR"}},{"@context":"https://schema.org","@type":"Service","name":"Vergi Tasdik Hizmetleri","description":"Gelir ve kurumlar vergisi tam tasdik hizmetleri, KDV iadesi, Ar-Ge ve teknokent teşvik tasdikleri ile özel amaçlı YMM tasdik raporları.","provider":{"@type":"Organization","name":"ELITAX"}}]</script>
 <link rel="icon" href="/elitax-sunum/assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/elitax-sunum/assets/styles-7c510184.css?v=6ae93efff85d">
+<script>
+try {
+  const font = localStorage.getItem("elitax-display-font");
+  if (font) document.documentElement.dataset.displayFont = font;
+} catch {}
+</script>
+<link rel="stylesheet" href="/elitax-sunum/assets/styles-4f6e144f.css?v=0e38ef4d6bcf">
 <script defer src="/elitax-sunum/assets/model/site.js?v=a1da2abaac76"></script>
+<script defer src="/elitax-sunum/assets/model/font-picker.js?v=e1a52c5e4274"></script>
 <script defer src="/elitax-sunum/assets/model-client.js?v=c52fbb476746"></script>
 </head>
 <body id="page-top" class="detail-page">
@@ -31,6 +38,21 @@
 <a href="/elitax-sunum/ekibimiz/">Ekibimiz</a>
 <a href="/elitax-sunum/rehberler/">Rehberler</a>
 <a href="/elitax-sunum/iletisim/" class="button button-dark">İletişim</a>
+<div class="font-picker" hidden>
+  <label for="site-font">Yazı fontu seç</label>
+  <select id="site-font" aria-describedby="font-picker-note">
+    <option value="literata" selected>Literata</option>
+    <option value="dm-sans">DM Sans</option>
+    <option value="ibm-plex-serif">IBM Plex Serif</option>
+    <option value="source-serif">Source Serif 4</option>
+    <option value="spectral">Spectral</option>
+    <option value="pt-serif">PT Serif</option>
+    <option value="crimson-text">Crimson Text</option>
+    <option value="baskervville">Baskervville</option>
+    <option value="noto-serif">Noto Serif</option>
+  </select>
+  <small id="font-picker-note">Tolga Abi buradan site fontu seçebilirsin</small>
+</div>
 </nav>
 </div>
 </header>
