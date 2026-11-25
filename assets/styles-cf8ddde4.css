@@ -1117,10 +1117,9 @@ main:focus { outline: none; }
 :root[data-display-font="noto-serif"] { --display-font: "Noto Serif", Georgia, serif; --display-weight: 500; }
 
 :root[data-display-font="dm-sans"] { --display-font: "DM Sans", "Segoe UI", sans-serif; --display-weight: 500; }
-:root main :is(h1, h2) {
-  font-family: var(--display-font);
-  font-weight: var(--display-weight);
-}
+:root { font-family: var(--display-font); }
+:root :is(input, select, textarea) { font-family: inherit; }
+:root main :is(h1, h2) { font-weight: var(--display-weight); }
 :root:not([data-display-font="dm-sans"]) main :is(h1, h2) { letter-spacing: -.025em; }
 
 .font-picker { display: grid; gap: .15rem; min-width: 0; white-space: nowrap; }
@@ -1131,7 +1130,8 @@ main:focus { outline: none; }
   border: 1px solid #91b0b1;
   border-radius: .3rem;
   background: white;
-  font: 600 .875rem "DM Sans", sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
   cursor: pointer;
 }
 .font-picker label, .font-picker small { color: var(--ink); font-size: .72rem; line-height: 1.25; }
