@@ -39,6 +39,22 @@ if (header && menuToggle) {
   });
 }
 
+const corporateMenu = document.querySelector(".corporate-menu");
+if (corporateMenu) {
+  document.addEventListener("click", event => {
+    if (!corporateMenu.contains(event.target)) corporateMenu.open = false;
+  });
+  corporateMenu.addEventListener("focusout", event => {
+    if (event.relatedTarget && !corporateMenu.contains(event.relatedTarget)) corporateMenu.open = false;
+  });
+  corporateMenu.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || !corporateMenu.open) return;
+    event.stopPropagation();
+    corporateMenu.open = false;
+    corporateMenu.querySelector("summary").focus();
+  });
+}
+
 const singleColumnProfiles = matchMedia("(max-width: 42rem)");
 
 document.querySelectorAll("[data-profile-section]").forEach((section) => {

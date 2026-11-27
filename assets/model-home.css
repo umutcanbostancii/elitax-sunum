@@ -93,7 +93,6 @@
   font-size: clamp(.84rem, 1.15vw, 1rem);
 }
 
-.home-locations .location-nav a { white-space: nowrap; }
 .home-services .service-card h3 { overflow-wrap: anywhere; }
 
 @media (min-width: 60rem) and (min-height: 43rem) and (prefers-reduced-motion: no-preference) {
@@ -129,7 +128,6 @@
   .model-home-stack .model-partner .founder-identity { padding: .55rem .45rem; }
   .model-home-stack .model-partner .founder-identity > span { display: none; }
   .model-partner-portrait::after { height: clamp(3.25rem, 40%, 4rem); }
-  .home-locations .location-nav a { align-self: stretch; text-align: center; }
 }
 
 @media (min-width: 60rem) and (min-height: 43rem) and (prefers-reduced-motion: no-preference) {
@@ -214,3 +212,36 @@
 }
 .home-page .home-about { width: 100%; --gutter: var(--page-gutter); }
 .home-about > .home-stack { --gutter: clamp(1.125rem, 2.7vw, 3rem); width: min(calc(100% - 2 * var(--gutter)), 96rem); margin-inline: auto; }
+
+.model-home-stack .sector-stack-media {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  background: #4c6d75;
+}
+.model-home-stack .sector-stack-media .sector-tile {
+  grid-column: auto;
+  min-height: 7rem;
+  justify-content: flex-end;
+  background: #17414f;
+}
+.model-home-stack .sector-stack-media .sector-tile:nth-child(even) { background: #225460; }
+.model-home-stack .sector-tile > img {
+  position: absolute;
+  z-index: -2;
+  height: 100%;
+  object-position: center;
+}
+.model-home-stack .sector-tile::before {
+  content: "";
+  background: linear-gradient(180deg, #102b3c14 20%, #102b3c52 49%, #102b3cee 100%);
+}
+.sector-stack-media .sector-tile:is(:hover, :focus-visible, [aria-pressed="true"]) { outline: 2px solid #d1eee8; outline-offset: -2px; }
+.home-publication-types { border-top: 1px solid var(--line); }
+.home-publication-story .credentials-chapters .publication-meta { margin: 0 0 .8rem 1rem; }
+.home-publication-story .credentials-chapters .text-link { margin-inline-start: 1rem; }
+@media (max-width: 42rem) {
+  .model-home-stack .sector-stack-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+}

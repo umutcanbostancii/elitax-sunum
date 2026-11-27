@@ -1,6 +1,6 @@
 const contactForm = document.querySelector("[data-contact-form]");
 
-if (contactForm && ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname)) {
+if (contactForm && contactForm.getAttribute("action") === "/api/iletisim" && ["localhost", "127.0.0.1", "[::1]"].includes(location.hostname)) {
   contactForm.closest(".elitax-form-section").hidden = false;
   document.querySelector("[data-public-contact]").hidden = true;
   const fields = contactForm.querySelector("[data-contact-fields]");
@@ -49,7 +49,9 @@ if (contactForm && ["localhost", "127.0.0.1", "[::1]"].includes(location.hostnam
 }
 
 // These bookmarks predate the separate partner biography pages.
-if (/^\/(?:hakkimizda|ekibimiz)(?:\/index\.html|\/)?$/.test(location.pathname.slice("/elitax-sunum".length))) {
+const siteHome = new URL(document.querySelector(".site-brand").href);
+const projectPath = location.pathname.slice(siteHome.pathname.length - 1);
+if (/^\/(?:hakkimizda|ekibimiz)(?:\/index\.html|\/)?$/.test(projectPath)) {
   const formerPartners = new Set([
     "nedim-tolga-suer",
     "kurtulus-ozan-keser",
@@ -59,9 +61,9 @@ if (/^\/(?:hakkimizda|ekibimiz)(?:\/index\.html|\/)?$/.test(location.pathname.sl
   const followFormerPartner = () => {
     const slug = location.hash.slice(1);
     if (formerPartners.has(slug)) {
-      location.replace(`/elitax-sunum/ekibimiz/${slug}/${location.search}`);
+      location.replace(new URL(`ekibimiz/${slug}/${location.search}`, siteHome));
     } else if (slug === "kurucular") {
-      location.replace(`/elitax-sunum/ekibimiz/${location.search}#our-partners`);
+      location.replace(new URL(`ekibimiz/${location.search}#our-partners`, siteHome));
     }
   };
   followFormerPartner();

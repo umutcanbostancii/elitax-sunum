@@ -773,7 +773,7 @@ main:has(> .elitax-closing:last-child) + .elitax-footer { padding-block-start: 0
   align-content: center;
   min-height: clamp(10rem, 35vw, 25rem);
   background: linear-gradient(90deg, #102b3cf5, #102b3ca8 43%, #102b3c2e),
-    var(--navy) url("/elitax-sunum/assets/editorial-folios.webp") center / cover no-repeat;
+    var(--navy) url("/assets/editorial-folios.webp") center / cover no-repeat;
 }
 .elitax-stack .elitax-stack-guides .elitax-stack-title { color: var(--white); font-size: clamp(1.55rem, 3vw, 2.9rem); }
 .elitax-stack .elitax-stack-guides .elitax-stack-title span { color: var(--aqua); }
